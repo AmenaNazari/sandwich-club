@@ -5,11 +5,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Sandwich club! Lets make your day by one delicious Sandwich \uD83E\uDD6A");
-        System.out.println("1. I want to order");
-        System.out.println("2. I am Done! ");
         boolean running = true;
         while (running) {
-            System.out.print("What do you want for today? choose an option");
+            System.out.println(" choose an option");
+        System.out.println("1. I want to order");
+        System.out.println("2. I am Done! ");
+
             int choice = scanner.nextInt();
             if (choice == 1) {
                 System.out.println("Great! Let's build your sandwich!");
