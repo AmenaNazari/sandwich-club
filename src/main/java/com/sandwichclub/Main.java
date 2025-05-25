@@ -23,7 +23,7 @@ public class Main {
             System.out.println("Choose sandwich size:");
             System.out.println("1. Small\n2. Medium\n3. Large");
             int sizeChoice = scanner.nextInt();
-            scanner.nextLine();  
+            scanner.nextLine();
 
             String size;
             if (sizeChoice == 1) size = "Small";
@@ -31,6 +31,16 @@ public class Main {
             else size = "Large";
 
         }
+        System.out.println("Choose bread type:");
+        System.out.println("1. White\n2. Wheat\n3. Rye");
+        int breadChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        String bread;
+        if (breadChoice == 1) bread = "White";
+        else if (breadChoice == 2) bread = "Wheat";
+        else bread = "Rye";
+
     }
 }
 
