@@ -20,42 +20,70 @@ public class Sandwich {
         this.regularToppings = regularToppings;
         this.sauces = sauces;
     }
+
     public double getPrice() {
-        double basePrice = switch (size.toLowerCase()) {
-            case "small" -> 5.00;
-            case "medium" -> 7.00;
-            case "large" -> 8.50;
-            default -> 0.00;
 
-        };
-        
+            double basePrice = 0.0;
 
-        public String getSize () {
-            return size;
+            switch (size.toLowerCase()) {
+                case "small":
+                    basePrice = 5.00;
+                    break;
+
+                case "medium":
+                    basePrice = 7.00;
+                    break;
+
+                case "large":
+                    basePrice = 8.50;
+                    break;
+
+                default:
+                    basePrice = 0.00;
+                    break;
+            }
+
+
+
+        double extraToppingCost = 0.0;
+        for (Topping meat : meats) {
+            extraToppingCost += meat.getPrice();
         }
 
-        public String getBreadType () {
-            return breadType;
+        for (Topping cheese : cheeses) {
+            extraToppingCost += cheese.getPrice();
         }
 
-        public boolean isToasted () {
-            return isToasted;
-        }
 
-        public List<Topping> getMeats () {
-            return meats;
-        }
+return basePrice + extraToppingCost;
+}
 
-        public List<Topping> getCheeses () {
-            return cheeses;
-        }
-
-        public List<Topping> getRegularToppings () {
-            return regularToppings;
-        }
-
-        public List<String> getSauces () {
-            return sauces;
-
-        }
+        public String getSize() {
+        return size;
     }
+
+    public String getBreadType() {
+        return breadType;
+    }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
+
+    public List<Topping> getMeats() {
+        return meats;
+    }
+
+    public List<Topping> getCheeses() {
+        return cheeses;
+    }
+
+    public List<Topping> getRegularToppings() {
+        return regularToppings;
+    }
+
+    public List<String> getSauces() {
+        return sauces;
+
+    }
+        }
