@@ -4,13 +4,14 @@ public class Sandwich {
     private String size;
     private String breadType;
     private boolean isToasted;
-
     private List<Topping> meats;
     private List<Topping> cheeses;
     private List<Topping> regularToppings;
     private List<String> sauces;
 
-    public Sandwich(String size, String breadType, boolean isToasted, List<Topping> meats, List<Topping> cheeses, List<Topping> regularToppings, List<String> sauces) {
+    public Sandwich(String size, String breadType, boolean isToasted,
+                    List<Topping> meats, List<Topping> cheeses,
+                    List<Topping> regularToppings, List<String> sauces) {
         this.size = size;
         this.breadType = breadType;
         this.isToasted = isToasted;
@@ -19,34 +20,42 @@ public class Sandwich {
         this.regularToppings = regularToppings;
         this.sauces = sauces;
     }
+    public double getPrice() {
+        double basePrice = switch (size.toLowerCase()) {
+            case "small" -> 5.00;
+            case "medium" -> 7.00;
+            case "large" -> 8.50;
+            default -> 0.00;
 
-    public String getSize() {
-        return size;
-    }
-
-    public String getBreadType() {
-        return breadType;
-    }
-
-    public boolean isToasted() {
-        return isToasted;
-    }
-
-    public List<Topping> getMeats() {
-        return meats;
-    }
-
-    public List<Topping> getCheeses() {
-        return cheeses;
-    }
-
-    public List<Topping> getRegularToppings() {
-        return regularToppings;
-    }
-
-    public List<String> getSauces() {
-        return sauces;
+        };
         
-    }
 
-}
+        public String getSize () {
+            return size;
+        }
+
+        public String getBreadType () {
+            return breadType;
+        }
+
+        public boolean isToasted () {
+            return isToasted;
+        }
+
+        public List<Topping> getMeats () {
+            return meats;
+        }
+
+        public List<Topping> getCheeses () {
+            return cheeses;
+        }
+
+        public List<Topping> getRegularToppings () {
+            return regularToppings;
+        }
+
+        public List<String> getSauces () {
+            return sauces;
+
+        }
+    }
