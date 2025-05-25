@@ -86,4 +86,16 @@ return basePrice + extraToppingCost;
         return sauces;
 
     }
-        }
+    @Override
+    public String toString() {
+        return "Size: " + size +
+                "\nBread: " + breadType +
+                (isToasted ? " (Toasted)" : "") +
+                "\nMeats: " + meats +
+                "\nCheeses: " + cheeses +
+                "\nToppings: " + regularToppings +
+                "\nSauces: " + sauces +
+                "\nPrice: $" + String.format("%.2f", getPrice());
+    }
+}
+        
