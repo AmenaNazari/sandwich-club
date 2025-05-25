@@ -8,8 +8,8 @@ public class Main {
         boolean running = true;
         while (running) {
             System.out.println(" choose an option");
-        System.out.println("1. I want to order");
-        System.out.println("2. I am Done! ");
+            System.out.println("1. I want to order");
+            System.out.println("2. I am Done! ");
 
             int choice = scanner.nextInt();
             if (choice == 1) {
@@ -40,6 +40,11 @@ public class Main {
         if (breadChoice == 1) bread = "White";
         else if (breadChoice == 2) bread = "Wheat";
         else bread = "Rye";
+
+
+        System.out.println("Do you want it toasted? (yes/no)");
+        String toastInput = scanner.nextLine();
+        boolean isToasted = toastInput.equalsIgnoreCase("yes");
 
     }
 }
