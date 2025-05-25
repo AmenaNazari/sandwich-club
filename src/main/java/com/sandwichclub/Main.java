@@ -20,6 +20,16 @@ public class Main {
                 System.out.println("Hmm 1... that's not a valid option. Please try again!");
 
             }
+            System.out.println("Choose sandwich size:");
+            System.out.println("1. Small\n2. Medium\n3. Large");
+            int sizeChoice = scanner.nextInt();
+            scanner.nextLine();  
+
+            String size;
+            if (sizeChoice == 1) size = "Small";
+            else if (sizeChoice == 2) size = "Medium";
+            else size = "Large";
+
         }
     }
 }

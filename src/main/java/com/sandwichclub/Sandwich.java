@@ -98,4 +98,3 @@ return basePrice + extraToppingCost;
                 "\nPrice: $" + String.format("%.2f", getPrice());
     }
 }
-        
