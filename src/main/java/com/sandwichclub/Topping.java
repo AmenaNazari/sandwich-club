@@ -24,6 +24,11 @@ public class Topping {
         return isExtra;
     }
 
+    public double getPrice() {
+        return isExtra ? 1.00 : 0.00;
+    }
+
+
     @Override
     public String toString() {
         return name + (isExtra ? " (extra)" : "");
