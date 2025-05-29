@@ -1,14 +1,12 @@
 package com.sandwichclub;
 
-public class Topping {
+public abstract class Topping {
     private String name;
-    private String type;
-    private boolean isExtra;
 
-    public Topping(String name, String type, boolean isExtra) {
+
+    public Topping(String name ) {
         this.name = name;
-        this.type = type;
-        this.isExtra = isExtra;
+
     }
 
 
@@ -16,21 +14,8 @@ public class Topping {
         return name;
     }
 
-    public String getType() {
-        return type;
-    }
 
-    public boolean isExtra() {
-        return isExtra;
-    }
-
-    public double getPrice() {
-        return isExtra ? 1.00 : 0.00;
-    }
+    public abstract double getPrice();
 
 
-    @Override
-    public String toString() {
-        return name + (isExtra ? " (extra)" : "");
-    }
 }

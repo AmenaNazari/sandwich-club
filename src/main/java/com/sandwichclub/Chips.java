@@ -1,14 +1,14 @@
 package com.sandwichclub;
 
 public class Chips {
-    private String Type;
+    private String type;
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public Chips(String type) {
-        Type = type;
+        type = type;
 
     }
 }

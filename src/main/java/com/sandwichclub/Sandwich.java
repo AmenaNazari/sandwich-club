@@ -1,25 +1,23 @@
 package com.sandwichclub;
+import java.util.ArrayList;
 import java.util.List;
 public class Sandwich {
     private String size;
     private String breadType;
     private boolean isToasted;
-    private List<Topping> meats;
-    private List<Topping> cheeses;
-    private List<Topping> regularToppings;
-    private List<String> sauces;
+    private boolean extraMeat;
+    private boolean extraCheese;
+    private List<Topping> toppings;
 
-    public Sandwich(String size, String breadType, boolean isToasted,
-                    List<Topping> meats, List<Topping> cheeses,
-                    List<Topping> regularToppings, List<String> sauces) {
+    public Sandwich(String size, String breadType, boolean extraCheese, boolean extraMeat, boolean isToasted ) {
         this.size = size;
         this.breadType = breadType;
+        this.extraCheese = extraCheese;
+        this.extraMeat = extraMeat;
         this.isToasted = isToasted;
-        this.meats = meats;
-        this.cheeses = cheeses;
-        this.regularToppings = regularToppings;
-        this.sauces = sauces;
+        this.toppings = new ArrayList<>();
     }
+
 
     public double getPrice() {
 
@@ -46,17 +44,14 @@ public class Sandwich {
 
 
         double extraToppingCost = 0.0;
-        for (Topping meat : meats) {
-            extraToppingCost += meat.getPrice();
-        }
 
-        for (Topping cheese : cheeses) {
-            extraToppingCost += cheese.getPrice();
-        }
+        if (extraMeat) basePrice += 1.00;
+        if (extraCheese) basePrice += 1.00;
+
+        return basePrice;
+    }
 
 
-return basePrice + extraToppingCost;
-}
 
         public String getSize() {
         return size;
@@ -70,31 +65,16 @@ return basePrice + extraToppingCost;
         return isToasted;
     }
 
-    public List<Topping> getMeats() {
-        return meats;
-    }
 
-    public List<Topping> getCheeses() {
-        return cheeses;
-    }
-
-    public List<Topping> getRegularToppings() {
-        return regularToppings;
-    }
-
-    public List<String> getSauces() {
-        return sauces;
-
-    }
     @Override
     public String toString() {
-        return "Size: " + size +
-                "\nBread: " + breadType +
-                (isToasted ? " (Toasted)" : "") +
-                "\nMeats: " + meats +
-                "\nCheeses: " + cheeses +
-                "\nToppings: " + regularToppings +
-                "\nSauces: " + sauces +
-                "\nPrice: $" + String.format("%.2f", getPrice());
+        return "Sandwich{" +
+                "breadType='" + breadType + '\'' +
+                ", size='" + size + '\'' +
+                ", isToasted=" + isToasted +
+                ", extraMeat=" + extraMeat +
+                ", extraCheese=" + extraCheese +
+                ", toppings=" + toppings +
+                '}';
     }
 }

@@ -2,11 +2,11 @@ package com.sandwichclub;
 
 public class Drink {
     private String flavor;
-    private String DrinkSize;
+    private String drinkSize;
 
     public Drink(String flavor, String drinkSize) {
         this.flavor = flavor;
-        DrinkSize = drinkSize;
+        drinkSize = drinkSize;
     }
 
     public String getFlavor() {
@@ -14,7 +14,7 @@ public class Drink {
     }
 
     public String getDrinkSize() {
-        return DrinkSize;
+        return drinkSize;
     }
 }
 

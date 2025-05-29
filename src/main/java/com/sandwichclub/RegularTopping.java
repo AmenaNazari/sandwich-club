@@ -1,4 +1,4 @@
 package com.sandwichclub;
 
-public class RegularTopping {
+public class RegularTopping extends Topping {
 }
