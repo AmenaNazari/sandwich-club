@@ -9,12 +9,12 @@ package com.sandwichclub;
 
         @Override
         public double getPrice(int size) {
-            return 0.00; // always free
+            return 0.00;
         }
 
         @Override
         public String toString() {
-            return getName(); // no (extra) tag needed
+            return getName();
         }
     }
 

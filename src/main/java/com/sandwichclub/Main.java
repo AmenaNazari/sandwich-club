@@ -191,7 +191,8 @@ public class Main {
                             continue;
                     }
 
-                    toppings.add(new RegularTopping("Lettuce"));
+                    toppings.add(new RegularTopping(toppingName));
+
 
                 }
 
