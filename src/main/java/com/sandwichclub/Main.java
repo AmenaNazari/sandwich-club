@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Welcome to Sandwich club! Lets make your day by one delicious Sandwich \uD83E\uDD6A");
         boolean running = true;
         while (running) {
@@ -17,6 +18,10 @@ public class Main {
             System.out.println("2. I am Done! ");
 
             int choice = scanner.nextInt();
+            Drink drink = null;
+            Chips chips = null;
+            double total = 0.0;
+
             if (choice == 1) {
 
                 System.out.println("Great! Let's build your sandwich!");
@@ -33,8 +38,6 @@ public class Main {
                 else size = "large";
 
 
-
-
                 System.out.println("Choose bread type:");
                 System.out.println("1. White\n2. Wheat\n3. Rye");
                 int breadChoice = scanner.nextInt();
@@ -46,13 +49,10 @@ public class Main {
                 else bread = "Rye";
 
 
-
                 System.out.println("Do you want it toasted?");
                 System.out.println("1. Yes\n2. No");
                 boolean isToasted = scanner.nextInt() == 1;
                 scanner.nextLine();
-
-
 
 
                 List<Topping> toppings = new ArrayList<>();
@@ -73,10 +73,18 @@ public class Main {
 
                     String meatName = "";
                     switch (meatChoice) {
-                        case 1: meatName = "Turkey"; break;
-                        case 2: meatName = "Ham"; break;
-                        case 3: meatName = "Chicken"; break;
-                        case 4: meatName = "Roast Beef"; break;
+                        case 1:
+                            meatName = "Turkey";
+                            break;
+                        case 2:
+                            meatName = "Ham";
+                            break;
+                        case 3:
+                            meatName = "Chicken";
+                            break;
+                        case 4:
+                            meatName = "Roast Beef";
+                            break;
                         case 5:
                             addingMeats = false;
                             continue;
@@ -115,10 +123,18 @@ public class Main {
 
                     String cheeseName = "";
                     switch (cheeseChoice) {
-                        case 1: cheeseName = "Cheddar"; break;
-                        case 2: cheeseName = "Swiss"; break;
-                        case 3: cheeseName = "Provolone"; break;
-                        case 4: cheeseName = "Mozzarella"; break;
+                        case 1:
+                            cheeseName = "Cheddar";
+                            break;
+                        case 2:
+                            cheeseName = "Swiss";
+                            break;
+                        case 3:
+                            cheeseName = "Provolone";
+                            break;
+                        case 4:
+                            cheeseName = "Mozzarella";
+                            break;
                         case 5:
                             addingCheese = false;
                             continue;
@@ -156,10 +172,18 @@ public class Main {
                     scanner.nextLine();
 
                     switch (sauceChoice) {
-                        case 1: sauces.add("Mayo"); break;
-                        case 2: sauces.add("Mustard"); break;
-                        case 3: sauces.add("Chipotle"); break;
-                        case 4: addingSauces = false; break;
+                        case 1:
+                            sauces.add("Mayo");
+                            break;
+                        case 2:
+                            sauces.add("Mustard");
+                            break;
+                        case 3:
+                            sauces.add("Chipotle");
+                            break;
+                        case 4:
+                            addingSauces = false;
+                            break;
                         default:
                             System.out.println("Not on the sauce list ");
                     }
@@ -179,10 +203,18 @@ public class Main {
 
                     String toppingName = "";
                     switch (regChoice) {
-                        case 1: toppingName = "Lettuce"; break;
-                        case 2: toppingName = "Tomato"; break;
-                        case 3: toppingName = "Pickles"; break;
-                        case 4: toppingName = "Onions"; break;
+                        case 1:
+                            toppingName = "Lettuce";
+                            break;
+                        case 2:
+                            toppingName = "Tomato";
+                            break;
+                        case 3:
+                            toppingName = "Pickles";
+                            break;
+                        case 4:
+                            toppingName = "Onions";
+                            break;
                         case 5:
                             addingRegular = false;
                             continue;
@@ -203,7 +235,7 @@ public class Main {
                 System.out.println("2. No");
                 boolean wantsDrink = scanner.nextInt() == 1;
                 scanner.nextLine();
-                Drink drink = null;
+
 
                 if (wantsDrink) {
                     String flavor = "";
@@ -220,9 +252,18 @@ public class Main {
                         scanner.nextLine(); // clear buffer
 
                         switch (flavorChoice) {
-                            case 1: flavor = "Cola"; choosingFlavor = false; break;
-                            case 2: flavor = "Lemonade"; choosingFlavor = false; break;
-                            case 3: flavor = "Orange"; choosingFlavor = false; break;
+                            case 1:
+                                flavor = "Cola";
+                                choosingFlavor = false;
+                                break;
+                            case 2:
+                                flavor = "Lemonade";
+                                choosingFlavor = false;
+                                break;
+                            case 3:
+                                flavor = "Orange";
+                                choosingFlavor = false;
+                                break;
                             case 4:
                                 System.out.println("No drink selected.");
                                 wantsDrink = false;
@@ -245,33 +286,71 @@ public class Main {
 
                     drink = new Drink(flavor, drinkSize);
 
+
+                }
+                System.out.println("Would you like to add chips?");
+                System.out.println("1. Yes");
+                System.out.println("2. No");
+                boolean wantsChips = scanner.nextInt() == 1;
+                scanner.nextLine();
+                if (wantsChips) {
+                    System.out.println("Choose your chip flavor:");
+                    System.out.println("1. Regular");
+                    System.out.println("2. Barbecue");
+                    System.out.println("3. Sour Cream");
+                    System.out.println("4. Jalapeno");
+
+                    int chipChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String chipType;
+                    switch (chipChoice) {
+                        case 1:
+                            chipType = "Regular";
+                            break;
+                        case 2:
+                            chipType = "Barbecue";
+                            break;
+                        case 3:
+                            chipType = "Sour Cream";
+                            break;
+                        case 4:
+                            chipType = "Jalapeno";
+                            break;
+                        default:
+                            System.out.println("Invalid choice. No chips added.");
+                            chipType = null;
+                    }
+                    if (chipType != null) {
+                        chips = new Chips(chipType);
+                        System.out.println("Chips: " + chips);
+                    }
+                }
+
+
+                    total = sandwich.getPrice();
+
+                    if (drink != null) {
+                        total += drink.getPrice();
+                    }
+                    if (chips != null) {
+                        total += chips.getPrice();
+                    }
+
+                    System.out.println("\nYour Sandwich Summary:");
+                    System.out.println(sandwich);
+
                     if (drink != null) {
                         System.out.println("Drink: " + drink);
                     }
+                    if (chips != null) {
+                        System.out.println("Chips: " + chips);
+                    }
 
-                }
-
-
-
-
-                System.out.println("\n Your Sandwich Summary:");
-                System.out.println(sandwich);
-                double total = sandwich.getPrice();
-
-                if (drink != null) {
-                    total += drink.getPrice();
-                }
+                    System.out.printf("Total Price: $%.2f\n", total);
 
 
-                System.out.printf("Total Price: $%.2f\n", total);
-
-
-
-
-
-
-
-            }else if (choice == 2) {
+                } else if (choice == 2) {
 
                     System.out.println("Thanks for visiting Sandwich-Club. See you soon!");
                     running = false;
@@ -282,6 +361,9 @@ public class Main {
             scanner.close();
         }
     }
+
+
+
 
 
 
