@@ -1,371 +1,100 @@
 package com.sandwichclub;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.UUID;
 
 public class Main {
 
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Welcome to Sandwich club! Lets make your day by one delicious Sandwich \uD83E\uDD6A");
         boolean running = true;
+
         while (running) {
-            System.out.println(" choose an option");
-            System.out.println("1. I want to order");
-            System.out.println("2. I am Done! ");
+            System.out.println("Welcome to Sandwich Club!");
+            System.out.println("1) New Order");
+            System.out.println("0) Exit");
+
+            int input = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (input) {
+                case 1:
+                    startNewOrder(scanner);
+                    break;
+                case 0:
+                    System.out.println("Goodbye!");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid option.");
+            }
+        }
+        scanner.close();
+    }
+
+    private static void startNewOrder(Scanner scanner) {
+        Order order = new Order(
+                UUID.randomUUID().toString(),
+                new ArrayList<>(),
+                new ArrayList<>(),
+                new ArrayList<>(),
+                LocalDateTime.now()
+        );
+
+        boolean ordering = true;
+
+        while (ordering) {
+            System.out.println("Order Options:");
+            System.out.println("1) Add Sandwich");
+            System.out.println("2) Add Drink");
+            System.out.println("3) Add Chips");
+            System.out.println("4) Checkout");
+            System.out.println("0) Cancel Order");
 
             int choice = scanner.nextInt();
-            Drink drink = null;
-            Chips chips = null;
-            double total = 0.0;
+            scanner.nextLine();
 
-            if (choice == 1) {
-
-                System.out.println("Great! Let's build your sandwich!");
-
-
-                System.out.println("Choose sandwich size:");
-                System.out.println("1. Small (4\")\n2. Medium (8\")\n3. Large (12\")");
-                int sizeChoice = scanner.nextInt();
-                scanner.nextLine();
-
-                String size;
-                if (sizeChoice == 1) size = "small";
-                else if (sizeChoice == 2) size = "medium";
-                else size = "large";
-
-
-                System.out.println("Choose bread type:");
-                System.out.println("1. White\n2. Wheat\n3. Rye");
-                int breadChoice = scanner.nextInt();
-                scanner.nextLine();
-
-                String bread;
-                if (breadChoice == 1) bread = "White";
-                else if (breadChoice == 2) bread = "Wheat";
-                else bread = "Rye";
-
-
-                System.out.println("Do you want it toasted?");
-                System.out.println("1. Yes\n2. No");
-                boolean isToasted = scanner.nextInt() == 1;
-                scanner.nextLine();
-
-
-                List<Topping> toppings = new ArrayList<>();
-
-
-                boolean addingMeats = true;
-
-                while (addingMeats) {
-                    System.out.println("Choose a meat topping:");
-                    System.out.println("1. Turkey");
-                    System.out.println("2. Ham");
-                    System.out.println("3. Chicken");
-                    System.out.println("4. Roast Beef");
-                    System.out.println("5. Done");
-
-                    int meatChoice = scanner.nextInt();
-                    scanner.nextLine();
-
-                    String meatName = "";
-                    switch (meatChoice) {
-                        case 1:
-                            meatName = "Turkey";
-                            break;
-                        case 2:
-                            meatName = "Ham";
-                            break;
-                        case 3:
-                            meatName = "Chicken";
-                            break;
-                        case 4:
-                            meatName = "Roast Beef";
-                            break;
-                        case 5:
-                            addingMeats = false;
-                            continue;
-                        default:
-                            System.out.println("Invalid option Try again.");
-                            continue;
-                    }
-
-                    System.out.println("Do you want extra " + meatName + "?");
-                    System.out.println("1. Yes");
-                    System.out.println("2. No");
-                    int extraChoice = scanner.nextInt();
-                    scanner.nextLine();
-                    boolean isExtra = (extraChoice == 1);
-                    toppings.add(new Meat(meatName, isExtra));
-
-
-                }
-                System.out.println("Do you want extra meat?");
-                System.out.println("1. Yes\n2. No");
-                boolean extraMeat = scanner.nextInt() == 1;
-                scanner.nextLine();
-
-                boolean addingCheese = true;
-
-                while (addingCheese) {
-                    System.out.println("Choose a cheese:");
-                    System.out.println("1. Cheddar");
-                    System.out.println("2. Swiss");
-                    System.out.println("3. Provolone");
-                    System.out.println("4. Mozzarella");
-                    System.out.println("5. Done");
-
-                    int cheeseChoice = scanner.nextInt();
-                    scanner.nextLine();
-
-                    String cheeseName = "";
-                    switch (cheeseChoice) {
-                        case 1:
-                            cheeseName = "Cheddar";
-                            break;
-                        case 2:
-                            cheeseName = "Swiss";
-                            break;
-                        case 3:
-                            cheeseName = "Provolone";
-                            break;
-                        case 4:
-                            cheeseName = "Mozzarella";
-                            break;
-                        case 5:
-                            addingCheese = false;
-                            continue;
-                        default:
-                            System.out.println("Invalid choice. Try again.");
-                            continue;
-                    }
-
-                    System.out.println("Do you want extra " + cheeseName + "?");
-                    System.out.println("1. Yes");
-                    System.out.println("2. No");
-                    boolean isExtra = scanner.nextInt() == 1;
-                    scanner.nextLine();
-
-                    toppings.add(new Cheese(cheeseName, isExtra));
-                }
-
-
-                System.out.println("Do you want extra cheese?");
-                System.out.println("1. Yes\n2. No");
-                boolean extraCheese = scanner.nextInt() == 1;
-                scanner.nextLine();
-
-                List<String> sauces = new ArrayList<>();
-                boolean addingSauces = true;
-
-                while (addingSauces) {
-                    System.out.println("Choose a sauce:");
-                    System.out.println("1. Mayo");
-                    System.out.println("2. Mustard");
-                    System.out.println("3. Chipotle");
-                    System.out.println("4. Done");
-
-                    int sauceChoice = scanner.nextInt();
-                    scanner.nextLine();
-
-                    switch (sauceChoice) {
-                        case 1:
-                            sauces.add("Mayo");
-                            break;
-                        case 2:
-                            sauces.add("Mustard");
-                            break;
-                        case 3:
-                            sauces.add("Chipotle");
-                            break;
-                        case 4:
-                            addingSauces = false;
-                            break;
-                        default:
-                            System.out.println("Not on the sauce list ");
-                    }
-                }
-                boolean addingRegular = true;
-
-                while (addingRegular) {
-                    System.out.println("Choose a regular topping:");
-                    System.out.println("1. Lettuce");
-                    System.out.println("2. Tomato");
-                    System.out.println("3. Pickles");
-                    System.out.println("4. Onions");
-                    System.out.println("5. Done");
-
-                    int regChoice = scanner.nextInt();
-                    scanner.nextLine();
-
-                    String toppingName = "";
-                    switch (regChoice) {
-                        case 1:
-                            toppingName = "Lettuce";
-                            break;
-                        case 2:
-                            toppingName = "Tomato";
-                            break;
-                        case 3:
-                            toppingName = "Pickles";
-                            break;
-                        case 4:
-                            toppingName = "Onions";
-                            break;
-                        case 5:
-                            addingRegular = false;
-                            continue;
-                        default:
-                            System.out.println("Invalid option . Try again.");
-                            continue;
-                    }
-
-                    toppings.add(new RegularTopping(toppingName));
-
-
-                }
-
-                Sandwich sandwich = new Sandwich(size, bread, extraCheese, extraMeat, isToasted);
-
-                System.out.println("Would you like to add a drink?");
-                System.out.println("1. Yes");
-                System.out.println("2. No");
-                boolean wantsDrink = scanner.nextInt() == 1;
-                scanner.nextLine();
-
-
-                if (wantsDrink) {
-                    String flavor = "";
-                    boolean choosingFlavor = true;
-
-                    while (choosingFlavor) {
-                        System.out.println("Choose a drink flavor:");
-                        System.out.println("1. Cola");
-                        System.out.println("2. Lemonade");
-                        System.out.println("3. Orange");
-                        System.out.println("4. Cancel");
-
-                        int flavorChoice = scanner.nextInt();
-                        scanner.nextLine(); // clear buffer
-
-                        switch (flavorChoice) {
-                            case 1:
-                                flavor = "Cola";
-                                choosingFlavor = false;
-                                break;
-                            case 2:
-                                flavor = "Lemonade";
-                                choosingFlavor = false;
-                                break;
-                            case 3:
-                                flavor = "Orange";
-                                choosingFlavor = false;
-                                break;
-                            case 4:
-                                System.out.println("No drink selected.");
-                                wantsDrink = false;
-                                choosingFlavor = false;
-                                break;
-                            default:
-                                System.out.println("Invalid choice, try again.");
-                        }
-                    }
-
-
-                    System.out.println("Choose drink size:");
-                    System.out.println("1. Small\n2. Medium\n3. Large");
-                    scanner.nextLine();
-
-                    String drinkSize;
-                    if (sizeChoice == 1) drinkSize = "small";
-                    else if (sizeChoice == 2) drinkSize = "medium";
-                    else drinkSize = "large";
-
-                    drink = new Drink(flavor, drinkSize);
-
-
-                }
-                System.out.println("Would you like to add chips?");
-                System.out.println("1. Yes");
-                System.out.println("2. No");
-                boolean wantsChips = scanner.nextInt() == 1;
-                scanner.nextLine();
-                if (wantsChips) {
-                    System.out.println("Choose your chip flavor:");
-                    System.out.println("1. Regular");
-                    System.out.println("2. Barbecue");
-                    System.out.println("3. Sour Cream");
-                    System.out.println("4. Jalapeno");
-
-                    int chipChoice = scanner.nextInt();
-                    scanner.nextLine();
-
-                    String chipType;
-                    switch (chipChoice) {
-                        case 1:
-                            chipType = "Regular";
-                            break;
-                        case 2:
-                            chipType = "Barbecue";
-                            break;
-                        case 3:
-                            chipType = "Sour Cream";
-                            break;
-                        case 4:
-                            chipType = "Jalapeno";
-                            break;
-                        default:
-                            System.out.println("Invalid choice. No chips added.");
-                            chipType = null;
-                    }
-                    if (chipType != null) {
-                        chips = new Chips(chipType);
-                        System.out.println("Chips: " + chips);
-                    }
-                }
-
-
-                    total = sandwich.getPrice();
-
-                    if (drink != null) {
-                        total += drink.getPrice();
-                    }
-                    if (chips != null) {
-                        total += chips.getPrice();
-                    }
-
-                    System.out.println("\nYour Sandwich Summary:");
-                    System.out.println(sandwich);
-
-                    if (drink != null) {
-                        System.out.println("Drink: " + drink);
-                    }
-                    if (chips != null) {
-                        System.out.println("Chips: " + chips);
-                    }
-
-                    System.out.printf("Total Price: $%.2f\n", total);
-
-
-                } else if (choice == 2) {
-
-                    System.out.println("Thanks for visiting Sandwich-Club. See you soon!");
-                    running = false;
-                } else {
-                    System.out.println("that's not a valid option. Please try again!");
-                }
+            switch (choice) {
+                case 1:
+                    addSandwich(scanner, order);
+                    break;
+                case 2:
+                    addDrink(scanner, order);
+                    break;
+                case 3:
+                    addChips(scanner, order);
+                    break;
+                case 4:
+                    checkout(order);
+                    ordering = false;
+                    break;
+                case 0:
+                    System.out.println("Order canceled.");
+                    ordering = false;
+                    break;
+                default:
+                    System.out.println("Invalid option.");
             }
-            scanner.close();
         }
     }
 
 
+    // Placeholder methods to implement next
+    private static void addSandwich(Scanner scanner, Order order) {
+        System.out.println(" Adding sandwich... (method to be implemented)");
+    }
 
+    private static void addDrink(Scanner scanner, Order order) {
+        System.out.println(" Adding drink... (method to be implemented)");
+    }
 
+    private static void addChips(Scanner scanner, Order order) {
+        System.out.println(" Adding chips... (method to be implemented)");
+    }
 
-
-
-
+    private static void checkout(Order order) {
+        System.out.println(" Checking out... (method to be implemented)");
+    }
+}
