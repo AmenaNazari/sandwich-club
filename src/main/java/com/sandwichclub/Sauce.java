@@ -2,17 +2,17 @@ package com.sandwichclub;
 
 public class Sauce extends Topping {
     public Sauce(String name) {
-        super(name); // only the name is needed
+        super(name);
     }
 
     @Override
     public double getPrice(int size) {
-        return 0.00; // sauces are always free
+        return 0.00;
     }
 
     @Override
     public String toString() {
-        return getName(); // no extra label needed
+        return getName();
     }
 }
 
