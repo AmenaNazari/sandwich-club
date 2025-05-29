@@ -1,14 +1,22 @@
+
 package com.sandwichclub;
 
-public class RegularTopping extends Topping {
-    public RegularTopping(String name) {
-        super(name, "regular", false);
+    public class RegularTopping extends Topping {
+
+        public RegularTopping(String name) {
+            super(name);
+        }
+
+        @Override
+        public double getPrice(int size) {
+            return 0.00; // always free
+        }
+
+        @Override
+        public String toString() {
+            return getName(); // no (extra) tag needed
+        }
     }
 
-    @Override
-    public double getPrice() {
-        return 0.00;
-    }
-}
 
 

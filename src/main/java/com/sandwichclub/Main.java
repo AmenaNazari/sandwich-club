@@ -191,7 +191,8 @@ public class Main {
                             continue;
                     }
 
-                    toppings.add(new RegularTopping (toppingName));
+                    toppings.add(new RegularTopping("Lettuce"));
+
                 }
 
                 Sandwich sandwich = new Sandwich(size, bread, extraCheese, extraMeat, isToasted);
