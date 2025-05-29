@@ -109,7 +109,7 @@ public class Main {
                     System.out.println("5. Done");
 
                     int cheeseChoice = scanner.nextInt();
-                    scanner.nextLine(); 
+                    scanner.nextLine();
 
                     String cheeseName = "";
                     switch (cheeseChoice) {
@@ -139,6 +139,30 @@ public class Main {
                 System.out.println("1. Yes\n2. No");
                 boolean extraCheese = scanner.nextInt() == 1;
                 scanner.nextLine();
+
+                List<String> sauces = new ArrayList<>();
+                boolean addingSauces = true;
+
+                while (addingSauces) {
+                    System.out.println("Choose a sauce:");
+                    System.out.println("1. Mayo");
+                    System.out.println("2. Mustard");
+                    System.out.println("3. Chipotle");
+                    System.out.println("4. Done");
+
+                    int sauceChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (sauceChoice) {
+                        case 1: sauces.add("Mayo"); break;
+                        case 2: sauces.add("Mustard"); break;
+                        case 3: sauces.add("Chipotle"); break;
+                        case 4: addingSauces = false; break;
+                        default:
+                            System.out.println("Not on the sauce list 🧂");
+                    }
+                }
+
 
 
             }else if (choice == 2) {
