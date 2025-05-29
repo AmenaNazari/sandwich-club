@@ -13,5 +13,10 @@ public class Meat extends Topping {
     public double getPrice() {
         return isExtra ? 1.50 : 1.00;
     }
+    @Override
+    public String toString() {
+        return getName() + (isExtra ? " (extra)" : "");
+    }
+
 }
 
