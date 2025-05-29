@@ -5,6 +5,8 @@ import java.util.List;
 
 
 public class Main {
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Sandwich club! Lets make your day by one delicious Sandwich \uD83E\uDD6A");
@@ -20,14 +22,15 @@ public class Main {
 
 
                 System.out.println("Choose sandwich size:");
-                System.out.println("1. Small\n2. Medium\n3. Large");
+                System.out.println("1. Small (4\")\n2. Medium (8\")\n3. Large (12\")");
                 int sizeChoice = scanner.nextInt();
                 scanner.nextLine();
 
-                String size;
-                if (sizeChoice == 1) size = "Small";
-                else if (sizeChoice == 2) size = "Medium";
-                else size = "Large";
+                int sizeInInches;
+                if (sizeChoice == 1) sizeInInches = 4;
+                else if (sizeChoice == 2) sizeInInches = 8;
+                else sizeInInches = 12;
+
 
 
                 System.out.println("Choose bread type:");
@@ -41,15 +44,18 @@ public class Main {
                 else bread = "Rye";
 
 
+
                 System.out.println("Do you want it toasted?");
-                System.out.println("1. Yes");
-                System.out.println("2. No");
-                int toastChoice = scanner.nextInt();
+                System.out.println("1. Yes\n2. No");
+                boolean isToasted = scanner.nextInt() == 1;
                 scanner.nextLine();
 
-                boolean isToasted = (toastChoice == 1);
 
-                List<Topping> meats = new ArrayList<>();
+
+
+                List<Topping> toppings = new ArrayList<>();
+
+
                 boolean addingMeats = true;
 
                 while (addingMeats) {
@@ -61,7 +67,7 @@ public class Main {
                     System.out.println("5. Done");
 
                     int meatChoice = scanner.nextInt();
-                    scanner.nextLine(); // clean newline
+                    scanner.nextLine();
 
                     String meatName = "";
                     switch (meatChoice) {
@@ -83,13 +89,56 @@ public class Main {
                     int extraChoice = scanner.nextInt();
                     scanner.nextLine();
                     boolean isExtra = (extraChoice == 1);
-
-
+                    toppings.add(new Meat(meatName, isExtra));
 
 
                 }
+                System.out.println("Do you want extra meat?");
+                System.out.println("1. Yes\n2. No");
+                boolean extraMeat = scanner.nextInt() == 1;
+                scanner.nextLine();
+
+                boolean addingCheese = true;
+
+                while (addingCheese) {
+                    System.out.println("Choose a cheese:");
+                    System.out.println("1. Cheddar");
+                    System.out.println("2. Swiss");
+                    System.out.println("3. Provolone");
+                    System.out.println("4. Mozzarella");
+                    System.out.println("5. Done");
+
+                    int cheeseChoice = scanner.nextInt();
+                    scanner.nextLine(); 
+
+                    String cheeseName = "";
+                    switch (cheeseChoice) {
+                        case 1: cheeseName = "Cheddar"; break;
+                        case 2: cheeseName = "Swiss"; break;
+                        case 3: cheeseName = "Provolone"; break;
+                        case 4: cheeseName = "Mozzarella"; break;
+                        case 5:
+                            addingCheese = false;
+                            continue;
+                        default:
+                            System.out.println("Invalid choice. Try again.");
+                            continue;
+                    }
+
+                    System.out.println("Do you want extra " + cheeseName + "?");
+                    System.out.println("1. Yes");
+                    System.out.println("2. No");
+                    boolean isExtra = scanner.nextInt() == 1;
+                    scanner.nextLine();
+
+                    toppings.add(new Cheese(cheeseName, isExtra));
+                }
 
 
+                System.out.println("Do you want extra cheese?");
+                System.out.println("1. Yes\n2. No");
+                boolean extraCheese = scanner.nextInt() == 1;
+                scanner.nextLine();
 
 
             }else if (choice == 2) {
