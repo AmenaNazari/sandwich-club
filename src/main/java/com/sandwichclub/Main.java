@@ -198,7 +198,65 @@ public class Main {
 
                 Sandwich sandwich = new Sandwich(size, bread, extraCheese, extraMeat, isToasted);
 
+                System.out.println("Would you like to add a drink?");
+                System.out.println("1. Yes");
+                System.out.println("2. No");
+                boolean wantsDrink = scanner.nextInt() == 1;
+                scanner.nextLine();
+                Drink drink = null;
 
+                if (wantsDrink) {
+                    String flavor = "";
+                    boolean choosingFlavor = true;
+
+                    while (choosingFlavor) {
+                        System.out.println("Choose a drink flavor:");
+                        System.out.println("1. Cola");
+                        System.out.println("2. Lemonade");
+                        System.out.println("3. Orange");
+                        System.out.println("4. Cancel");
+
+                        int flavorChoice = scanner.nextInt();
+                        scanner.nextLine(); // clear buffer
+
+                        switch (flavorChoice) {
+                            case 1: flavor = "Cola"; choosingFlavor = false; break;
+                            case 2: flavor = "Lemonade"; choosingFlavor = false; break;
+                            case 3: flavor = "Orange"; choosingFlavor = false; break;
+                            case 4:
+                                System.out.println("No drink selected.");
+                                wantsDrink = false;
+                                choosingFlavor = false;
+                                break;
+                            default:
+                                System.out.println("Invalid choice, try again.");
+                        }
+                    }
+
+
+                    System.out.println("Choose drink size:");
+                    System.out.println("1. Small\n2. Medium\n3. Large");
+                    scanner.nextLine();
+
+                    String drinkSize;
+                    if (sizeChoice == 1) drinkSize = "small";
+                    else if (sizeChoice == 2) drinkSize = "medium";
+                    else drinkSize = "large";
+
+                    drink = new Drink(flavor, drinkSize);
+
+                    if (drink != null) {
+                        System.out.println("Drink: " + drink);
+                    }
+
+                }
+
+                double total = sandwich.getPrice();
+
+                if (drink != null) {
+                    total += drink.getPrice();
+                }
+                System.out.printf("Total Price: $%.2f\n", total);
 
 
                 System.out.println("\n Your Sandwich Summary:");
@@ -206,6 +264,8 @@ public class Main {
 
 
                 System.out.printf("Total Price: $%.2f\n", sandwich.getPrice());
+
+
 
 
 
