@@ -251,19 +251,19 @@ public class Main {
 
                 }
 
+
+
+
+                System.out.println("\n Your Sandwich Summary:");
+                System.out.println(sandwich);
                 double total = sandwich.getPrice();
 
                 if (drink != null) {
                     total += drink.getPrice();
                 }
+
+
                 System.out.printf("Total Price: $%.2f\n", total);
-
-
-                System.out.println("\n Your Sandwich Summary:");
-                System.out.println(sandwich);
-
-
-                System.out.printf("Total Price: $%.2f\n", sandwich.getPrice());
 
 
 
