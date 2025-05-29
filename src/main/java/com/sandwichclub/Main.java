@@ -159,9 +159,39 @@ public class Main {
                         case 3: sauces.add("Chipotle"); break;
                         case 4: addingSauces = false; break;
                         default:
-                            System.out.println("Not on the sauce list 🧂");
+                            System.out.println("Not on the sauce list ");
                     }
                 }
+                boolean addingRegular = true;
+
+                while (addingRegular) {
+                    System.out.println("Choose a regular topping:");
+                    System.out.println("1. Lettuce");
+                    System.out.println("2. Tomato");
+                    System.out.println("3. Pickles");
+                    System.out.println("4. Onions");
+                    System.out.println("5. Done");
+
+                    int regChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String toppingName = "";
+                    switch (regChoice) {
+                        case 1: toppingName = "Lettuce"; break;
+                        case 2: toppingName = "Tomato"; break;
+                        case 3: toppingName = "Pickles"; break;
+                        case 4: toppingName = "Onions"; break;
+                        case 5:
+                            addingRegular = false;
+                            continue;
+                        default:
+                            System.out.println("Invalid option 🥔. Try again.");
+                            continue;
+                    }
+
+                    toppings.add(new Regular(toppingName));
+                }
+
 
 
 
