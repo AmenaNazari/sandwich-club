@@ -1,7 +1,14 @@
 package com.sandwichclub;
 
-public class Regular extends Topping {
-    public Regular(String name) {
-        super(name, "regular", false); // regular toppings are never extra
+public class RegularTopping extends Topping {
+    public RegularTopping(String name) {
+        super(name, "regular", false);
+    }
+
+    @Override
+    public double getPrice() {
+        return 0.00;
     }
 }
+
+

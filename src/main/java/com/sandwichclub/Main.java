@@ -18,6 +18,7 @@ public class Main {
 
             int choice = scanner.nextInt();
             if (choice == 1) {
+
                 System.out.println("Great! Let's build your sandwich!");
 
 
@@ -26,10 +27,11 @@ public class Main {
                 int sizeChoice = scanner.nextInt();
                 scanner.nextLine();
 
-                int sizeInInches;
-                if (sizeChoice == 1) sizeInInches = 4;
-                else if (sizeChoice == 2) sizeInInches = 8;
-                else sizeInInches = 12;
+                String size;
+                if (sizeChoice == 1) size = "small";
+                else if (sizeChoice == 2) size = "medium";
+                else size = "large";
+
 
 
 
@@ -185,12 +187,24 @@ public class Main {
                             addingRegular = false;
                             continue;
                         default:
-                            System.out.println("Invalid option 🥔. Try again.");
+                            System.out.println("Invalid option . Try again.");
                             continue;
                     }
 
-                    toppings.add(new Regular(toppingName));
+                    toppings.add(new RegularTopping (toppingName));
                 }
+
+                Sandwich sandwich = new Sandwich(size, bread, extraCheese, extraMeat, isToasted);
+
+
+
+
+                System.out.println("\n Your Sandwich Summary:");
+                System.out.println(sandwich);
+
+
+                System.out.printf("Total Price: $%.2f\n", sandwich.getPrice());
+
 
 
 
