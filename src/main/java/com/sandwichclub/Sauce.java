@@ -7,12 +7,6 @@ public class Sauce extends Topping {
 
     @Override
     public double getPrice(int size) {
-        return 0.00;
-    }
-
-    @Override
-    public String toString() {
-        return getName();
+        return 0.0;  // Sauces are always free
     }
 }
-

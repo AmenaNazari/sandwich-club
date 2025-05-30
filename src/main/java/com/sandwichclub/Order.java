@@ -1,23 +1,22 @@
 package com.sandwichclub;
+
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
-
     private String orderId;
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chips;
     private LocalDateTime timestamp;
 
-    public Order(String orderId, List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips, LocalDateTime timestamp) {
+    public Order(String orderId) {
         this.orderId = orderId;
-        this.sandwiches = sandwiches;
-        this.drinks = drinks;
-        this.chips = chips;
-        this.timestamp = timestamp;
-
+        this.sandwiches = new ArrayList<>();
+        this.drinks = new ArrayList<>();
+        this.chips = new ArrayList<>();
+        this.timestamp = LocalDateTime.now();
     }
 
     public String getOrderId() {
@@ -43,12 +42,15 @@ public class Order {
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
     }
+
     public void addDrink(Drink drink) {
         drinks.add(drink);
     }
+
     public void addChips(Chips chip) {
         chips.add(chip);
     }
+
     public double getTotalCost() {
         double total = 0.0;
         for (Sandwich s : sandwiches) total += s.getPrice();
@@ -56,6 +58,7 @@ public class Order {
         for (Chips c : chips) total += c.getPrice();
         return total;
     }
+
     public void printSummary() {
         System.out.println("Order ID: " + orderId);
         System.out.println("Time: " + timestamp);
@@ -71,5 +74,4 @@ public class Order {
 
         System.out.printf("\nTotal: $%.2f\n", getTotalCost());
     }
-
 }

@@ -2,43 +2,24 @@ package com.sandwichclub;
 
 public class Drink {
     private String flavor;
-    private String drinkSize;
+    private String size;
 
-    public Drink(String flavor, String drinkSize) {
-        this.flavor = flavor;
-        this.drinkSize = drinkSize;
+    public Drink(String flavor, String size) {
+        this.flavor = flavor.toLowerCase();
+        this.size = size.toLowerCase();
     }
-
 
     public double getPrice() {
-        switch (drinkSize.toLowerCase()) {
-            case "small": return 1.50;
-            case "medium": return 2.00;
-            case "large": return 2.50;
-            default: return 0.00;
-        }
+        return switch (size) {
+            case "small" -> 2.00;
+            case "medium" -> 2.50;
+            case "large" -> 3.00;
+            default -> 0.0; // fallback for invalid input
+        };
     }
 
-
-    public String getFlavor() {
-        return flavor;
-    }
-
-    public String getDrinkSize() {
-        return drinkSize;
-
-    }
     @Override
     public String toString() {
-        return drinkSize + " " + flavor;
+        return flavor + " (" + size + ") - $" + String.format("%.2f", getPrice());
     }
-
 }
-
-
-
-
-
-
-
-

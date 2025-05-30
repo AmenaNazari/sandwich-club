@@ -10,14 +10,17 @@ public class ScreenManager {
     }
 
     public void showHome() {
-        System.out.println(" Welcome to Sandwich Club!");
-        System.out.println("Make your day better with one delicious sandwich!");
+        System.out.println("=== Welcome to Sandwich Club!");
+        System.out.println("1) New Order");
+        System.out.println("0) Exit");
     }
 
     public void showOrderMenu() {
-        System.out.println("\nChoose an option:");
-        System.out.println("1. I want to order");
-        System.out.println("2. I am done!");
+        System.out.println("\n--- Order Options ---");
+        System.out.println("1) Add Sandwich");
+        System.out.println("2) Add Drink");
+        System.out.println("3) Add Chips");
+        System.out.println("4) Checkout");
+        System.out.println("0) Cancel Order");
     }
 }
-

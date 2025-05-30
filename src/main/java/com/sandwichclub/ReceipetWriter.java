@@ -1,24 +1,16 @@
 package com.sandwichclub;
 
 import java.io.FileWriter;
-import java.io.File;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
-public class RecipeWriter {
-
+public class ReceiptWriter {
     public void writeReceipt(Order order) {
-        String folderName = "receipts";
-        File folder = new File(folderName);
-        if (!folder.exists()) {
-            folder.mkdir();
-        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        String fileName = "receipts/" + order.getTimestamp().format(formatter) + ".txt";
 
-
-        String timestamp = order.getTimestamp().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-        String filename = folderName + "/" + timestamp + ".txt";
-
-        try (FileWriter writer = new FileWriter(filename)) {
+        try (FileWriter writer = new FileWriter(fileName)) {
+            writer.write("=== Sandwich Club Receipt ===\n");
             writer.write("Order ID: " + order.getOrderId() + "\n");
             writer.write("Time: " + order.getTimestamp() + "\n\n");
 
@@ -37,13 +29,9 @@ public class RecipeWriter {
                 writer.write(" - " + c + "\n");
             }
 
-            writer.write(String.format("\nTotal: $%.2f\n", order.getTotalCost()));
-
-            System.out.println(" Receipt saved to: " + filename);
+            writer.write("\nTOTAL: $" + String.format("%.2f", order.getTotalCost()) + "\n");
         } catch (IOException e) {
-            System.out.println(" Error writing receipt: " + e.getMessage());
+            System.out.println("❌ Error saving receipt: " + e.getMessage());
         }
     }
 }
-
-

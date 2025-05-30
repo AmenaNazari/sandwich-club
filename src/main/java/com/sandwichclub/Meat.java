@@ -1,20 +1,17 @@
 package com.sandwichclub;
 
 public class Meat extends Topping {
-    private boolean isExtra;
-
-    public Meat(String name, boolean isExtra) {
+    public Meat(String name) {
         super(name);
-        this.isExtra = isExtra;
     }
 
     @Override
     public double getPrice(int size) {
-        return isExtra ? 1.50 : 1.00;
-    }
-
-    @Override
-    public String toString() {
-        return getName() + (isExtra ? " (extra)" : "");
+        return switch (size) {
+            case 4 -> 1.00;
+            case 8 -> 2.00;
+            case 12 -> 3.00;
+            default -> 0.0;
+        };
     }
 }

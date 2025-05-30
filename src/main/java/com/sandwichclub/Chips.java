@@ -6,16 +6,13 @@ public class Chips {
     public Chips(String type) {
         this.type = type;
     }
+
     public String getType() {
         return type;
     }
-    public double getPrice() {
 
-        return switch (type.toLowerCase()) {
-            case "regular", "barbecue", "sour cream" -> 1.50;
-            case "jalapeno" -> 1.75;
-            default -> 1.50;
-        };
+    public double getPrice() {
+        return 1.50; // All chips cost the same
     }
 
     @Override
@@ -23,6 +20,3 @@ public class Chips {
         return type + " chips";
     }
 }
-
-
-
