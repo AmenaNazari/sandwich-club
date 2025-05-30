@@ -62,10 +62,6 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - Java I/O (FileWriter) for saving receipts
 
 - OOP Design: Abstraction, Inheritance, Composition, and Polymorphism
-## Demo
-
-
-
 
 ![![img_2.png](img_2.png)Application Screenshot](![img_1.png](img_1.png)path/to/your/screenshot.png 
 ![img_3.png](img_3.png))![img_4.png](img_4.png)
@@ -80,9 +76,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Resources
 
-
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
+- Workbook
 - [google]
 - [Potato sensei]
 ## Team Members
