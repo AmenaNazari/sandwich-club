@@ -1,4 +1,6 @@
-package com.sandwichclub;
+package com.model;
+
+import com.topping.Topping;
 
 import java.util.ArrayList;
 import java.util.List;

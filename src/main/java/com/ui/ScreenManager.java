@@ -1,4 +1,4 @@
-package com.sandwichclub;
+package com.ui;
 
 import java.util.Scanner;
 

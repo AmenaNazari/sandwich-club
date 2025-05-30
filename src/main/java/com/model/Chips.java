@@ -1,4 +1,4 @@
-package com.sandwichclub;
+package com.model;
 
 public class Chips {
     private String type;

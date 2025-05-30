@@ -1,4 +1,4 @@
-package com.sandwichclub;
+package com.topping;
 
 public class Sauce extends Topping {
     public Sauce(String name) {

@@ -1,4 +1,4 @@
-package com.sandwichclub;
+package com.topping;
 
 public abstract class Topping {
     private String name;

@@ -1,4 +1,4 @@
-package com.sandwichclub;
+package com.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

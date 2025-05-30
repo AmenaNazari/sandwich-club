@@ -1,5 +1,15 @@
 package com.sandwichclub;
 
+import com.model.Chips;
+import com.model.Drink;
+import com.model.Order;
+import com.model.Sandwich;
+import com.topping.Cheese;
+import com.topping.Meat;
+import com.topping.RegularTopping;
+import com.topping.Sauce;
+import com.utils.ReceiptWriter;
+
 import java.util.Scanner;
 
 public class Main {

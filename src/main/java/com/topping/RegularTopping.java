@@ -1,4 +1,4 @@
-package com.sandwichclub;
+package com.topping;
 
 public class RegularTopping extends Topping {
     public RegularTopping(String name) {
