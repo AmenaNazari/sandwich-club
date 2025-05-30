@@ -1,4 +1,4 @@
-package com.ui;
+package com.Screen;
 
 import java.util.Scanner;
 

@@ -8,7 +8,7 @@ import com.topping.Cheese;
 import com.topping.Meat;
 import com.topping.RegularTopping;
 import com.topping.Sauce;
-import com.utils.ReceiptWriter;
+import com.Writers.ReceiptWriter;
 
 import java.util.Scanner;
 
@@ -24,8 +24,7 @@ public class Main {
             System.out.println("0) Exit");
 
             int input = scanner.nextInt();
-            scanner.nextLine(); // Clear newline
-
+            scanner.nextLine();
             switch (input) {
                 case 1:
                     startNewOrder(scanner);

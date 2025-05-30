@@ -1,15 +1,19 @@
 # Sandwich Club
 
-The Sandwich Club is a Java-based console application that simulates a sandwich shop ordering system. Users can build fully customizable sandwiches by choosing size, bread type, toppings, and extras like drinks and chips. It calculates prices in real-time and generates printable receipts for each order.
+The Sandwich Club is a Java-based console application that simulates a sandwich shop ordering system.
+Users can build fully customizable sandwiches by choosing size, bread type, toppings, and extras like drinks and chips.
+It calculates prices in real-time and generates printable receipts for each order.
 
 Purpose:
 To give users a fun, interactive experience while practicing object-oriented design in Java.
 Intended Users:
-This app is built for anyone who wants to explore how sandwich orders are processed in a deli-style menu — students, hobby developers, or instructors assessing Java project design.
+This app is built for anyone who wants to explore how sandwich orders are processed in a deli-style menu — students, 
+hobby developers, or instructors assessing Java project design.
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+Briefly describe what this Java console application does. Mention its purpose and who the intended users are.
+Explain the main functionality and what problems it aims to solve.
 
-!![img.png](img.png)[Class Diagram](path/to/your/class_diagram.png)
+![img_5.png](img_5.png)
 
 ## User Stories
 
@@ -60,9 +64,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - OOP Design: Abstraction, Inheritance, Composition, and Polymorphism
 ## Demo
 
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](![img_1.png](img_1.png)path/to/your/screenshot.png)
+
+
+![![img_2.png](img_2.png)Application Screenshot](![img_1.png](img_1.png)path/to/your/screenshot.png 
+![img_3.png](img_3.png))![img_4.png](img_4.png)
 
 ## Future Work
 
@@ -74,7 +80,6 @@ Include screenshots or GIFs that show your application in action. Use tools like
 
 ## Resources
 
-List resources such as tutorials, articles, or documentation that helped you during the project.
 
 - [Java Programming Tutorial](https://www.example.com)
 - [Effective Java](https://www.example.com)
@@ -85,8 +90,6 @@ List resources such as tutorials, articles, or documentation that helped you dur
 - Amena developer
 
 ## Thanks
-
-Express gratitude towards those who provided help, guidance, or resources:
 
 - Thank you to Raymond Maroun for continuous support and guidance.
 - A special thanks to all teammates for their dedication and teamwork.

@@ -1,0 +1,14 @@
+=== Sandwich Club Receipt ===
+Order ID: ORDER1
+Time: 2025-05-30T09:01:53.402012600
+
+Sandwiches:
+ - 8" rye (Toasted), Toppings: [steak, chicken, swiss, american, onions, tomatoes, mayo, ketchup] [$14.00]
+
+Drinks:
+ - cola (small) - $2.00
+
+Chips:
+ - bbg chips
+
+TOTAL: $17.50
