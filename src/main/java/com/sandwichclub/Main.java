@@ -160,12 +160,15 @@ public class Main {
 
 
     private static void checkout(Order order) {
-        System.out.println("\n--- Order Summary ---");
+        System.out.println("\n=== ORDER SUMMARY ===");
         order.printSummary();
 
-        System.out.println("\nSaving receipt...");
-        RecipeWriter writer = new RecipeWriter();
-        writer.writeRecipe(order);
+
+        ReceiptWriter writer = new ReceiptWriter();
+        writer.writeReceipt(order);
+
+        System.out.println("\nReceipt has been saved to the 'receipts/' folder.");
     }
+
 }
 

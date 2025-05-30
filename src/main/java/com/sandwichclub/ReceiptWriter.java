@@ -1,11 +1,18 @@
 package com.sandwichclub;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
     public void writeReceipt(Order order) {
+
+        File folder = new File("receipts");
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         String fileName = "receipts/" + order.getTimestamp().format(formatter) + ".txt";
 
@@ -29,9 +36,9 @@ public class ReceiptWriter {
                 writer.write(" - " + c + "\n");
             }
 
-            writer.write("\nTOTAL: $" + String.format("%.2f", order.getTotalCost()) + "\n");
+            writer.write(String.format("\nTOTAL: $%.2f\n", order.getTotalCost()));
         } catch (IOException e) {
-            System.out.println("❌ Error saving receipt: " + e.getMessage());
+            System.out.println("Error saving receipt: " + e.getMessage());
         }
     }
 }

@@ -1,0 +1,14 @@
+=== Sandwich Club Receipt ===
+Order ID: ORDER1
+Time: 2025-05-29T23:22:07.939474200
+
+Sandwiches:
+ - 8" white (Toasted), Toppings: [steak, roast beef, swiss, american, tomatoes, peppers, ketchup, mayo] [$14.00]
+
+Drinks:
+ -  (small) - $2.00
+
+Chips:
+ - bbg chips
+
+TOTAL: $17.50
